@@ -20,13 +20,15 @@ const boots = {
     }
 }
 let item = [];
-let bill = [];
+
+
+let cost = [];
 
 function addToCart(x) {
     const span = `<span class="price">$${boots[x].price}</span>`
     const result = boots[x].name + " " + span;
     if (item.includes(boots[x]) === false) item.push(result);
-    bill.push(boots[x].price);
+    cost.push(boots[x].price);
 
 }
 
@@ -40,7 +42,7 @@ function cart() {
         listItem.style.textAlign = 'left';
     }
     const btn = document.querySelector('.bill');
-    const total = bill.reduce(add);
+    const total = cost.reduce(add);
 
     function add(accumulator, a) {
         return parseInt(accumulator) + parseInt(a);
